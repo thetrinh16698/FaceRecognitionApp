@@ -1,4 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The link to the online version: https://face-recognition-app-thetrinh.herokuapp.com
+
+## Instruction 
+After you signin and logged in to my page:
+1. Go to google.com and search for a random face image (you can use key word like "face" and use image search)
+2. Now choose the image you want to test, click on that image and then press right click. If you are using Firefox browser choose the option "View image", on Chrome you choose "Open image in new tab".
+3. Then copy the link on the new tab only show the image you choose.
+4. Paste the link to the white box in my page and then press the "magic!!!" button.
 
 ## Available Scripts
 
