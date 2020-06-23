@@ -83,14 +83,6 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      // fetch('https://enigmatic-sands-57546.herokuapp.com/imageurl', {
-      //     method: 'post',
-      //     headers: {'Content-Type': 'application/json'},
-      //     body: JSON.stringify({
-      //     input: this.state.input
-      //   })
-      // })
-      // .then(response => response.json())
       app.models
       .predict(
         // This part has been updated with the recent Clarifai changes. Used to be:
