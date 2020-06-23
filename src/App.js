@@ -7,7 +7,12 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import Clarifai from 'clarifai';
 import './App.css';
+
+const app = new Clarifai.App({
+  apiKey: '4e69545c02fc44378f73d6e71c65c944'
+});
 
 const particlesOptions = {
   particles: {
@@ -78,14 +83,20 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('https://enigmatic-sands-57546.herokuapp.com/imageurl', {
-          method: 'post',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-          input: this.state.input
-        })
-      })
-      .then(response => response.json())
+      // fetch('https://enigmatic-sands-57546.herokuapp.com/imageurl', {
+      //     method: 'post',
+      //     headers: {'Content-Type': 'application/json'},
+      //     body: JSON.stringify({
+      //     input: this.state.input
+      //   })
+      // })
+      // .then(response => response.json())
+      app.models
+      .predict(
+        // This part has been updated with the recent Clarifai changes. Used to be:
+        // .predict(Clarifai.FACE_DETECT_MODEL, ....)
+        'c0c0ac362b03416da06ab3fa36fb58e3',
+        this.state.input)
       .then(response => {
         if (response) {
           fetch('https://enigmatic-sands-57546.herokuapp.com/image', {
